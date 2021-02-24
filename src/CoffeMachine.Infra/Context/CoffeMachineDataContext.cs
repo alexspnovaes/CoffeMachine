@@ -12,7 +12,7 @@ namespace CoffeMachine.Infra.Context
         public DbSet<Coffe> Coffes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-             => options.UseSqlite("Filename=MyDatabase.db");
+             => options.UseSqlite("Filename=CoffeMachine.db");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
