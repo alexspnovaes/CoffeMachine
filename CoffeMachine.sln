@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeMachine.API", "src\CoffeMachine.API\CoffeMachine.API.csproj", "{4261C011-8FED-408C-A8C1-3F238D9E835E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DFE4D8FF-BE94-418C-83B1-875E6A3CFE22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeMachine.Domain", "src\CoffeMachine.Domain\CoffeMachine.Domain.csproj", "{AC0F7A36-4C3E-48FC-A0E2-13B07A7EB327}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeMachine.Infra", "src\CoffeMachine.Infra\CoffeMachine.Infra.csproj", "{F666E268-4773-46F7-9BDC-E56EBCF597D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4261C011-8FED-408C-A8C1-3F238D9E835E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4261C011-8FED-408C-A8C1-3F238D9E835E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4261C011-8FED-408C-A8C1-3F238D9E835E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4261C011-8FED-408C-A8C1-3F238D9E835E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC0F7A36-4C3E-48FC-A0E2-13B07A7EB327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC0F7A36-4C3E-48FC-A0E2-13B07A7EB327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC0F7A36-4C3E-48FC-A0E2-13B07A7EB327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC0F7A36-4C3E-48FC-A0E2-13B07A7EB327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F666E268-4773-46F7-9BDC-E56EBCF597D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F666E268-4773-46F7-9BDC-E56EBCF597D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F666E268-4773-46F7-9BDC-E56EBCF597D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F666E268-4773-46F7-9BDC-E56EBCF597D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4261C011-8FED-408C-A8C1-3F238D9E835E} = {DFE4D8FF-BE94-418C-83B1-875E6A3CFE22}
+		{AC0F7A36-4C3E-48FC-A0E2-13B07A7EB327} = {DFE4D8FF-BE94-418C-83B1-875E6A3CFE22}
+		{F666E268-4773-46F7-9BDC-E56EBCF597D5} = {DFE4D8FF-BE94-418C-83B1-875E6A3CFE22}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C69DB971-89A9-4E33-94CE-355C94FA6701}
+	EndGlobalSection
+EndGlobal

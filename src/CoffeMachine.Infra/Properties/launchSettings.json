@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CoffeMachine.Infra": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
