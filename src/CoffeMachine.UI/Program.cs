@@ -55,11 +55,10 @@ namespace CoffeMachine.UI
                 Console.WriteLine("Caso deseje um desses valores, insira o número ou pressione qualquer tecla para continuar");
                 if (int.TryParse(Console.ReadLine(), out selectedCoffe) && coffesAvailable.Any(w => w.Id == selectedCoffe))
                 {
-                    var changeValue = sumValue - coffesAvailable.FirstOrDefault(w => w.Id == selectedCoffe).Value;
-
                     //essa parte poderia chamar a API e fazer o order do café
                     Console.WriteLine($"Entregando  {coffesAvailable.FirstOrDefault(w => w.Id == selectedCoffe).Name}");
-                    Console.WriteLine($"Troco: R$ {(ChangeCalculate.Calculate(coffesAvailable.FirstOrDefault(w => w.Id == selectedCoffe).Value, changeValue,validCoins))}");
+                    Console.WriteLine($"Troco: ");
+                    ChangeCalculate.Calculate(coffesAvailable.FirstOrDefault(w => w.Id == selectedCoffe).Value, sumValue, validCoins);
                     Console.ReadKey();
                     return true;
                 }

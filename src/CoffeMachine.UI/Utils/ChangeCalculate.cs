@@ -6,20 +6,26 @@ namespace CoffeMachine.UI.Utils
 {
     public static class ChangeCalculate
     {
-        public static string Calculate(decimal totalSoldValue, decimal totalInputValue,  decimal[] validCoins)
+        public static void Calculate(decimal totalSoldValue, decimal totalInputValue,  decimal[] validCoins)
         {
+            var changeValue = totalInputValue - totalSoldValue;
+            Array.Sort(validCoins);
+            Array.Reverse(validCoins);
+            int actualCoin = 0;
 
-            var troco = Math.Round(totalInputValue - totalSoldValue, 2);
-            foreach (var moeda in validCoins)
+            foreach (var coin in validCoins)
             {
-                var notas = (int)(troco / moeda);
-                if (notas > 0)
+                while (changeValue >= coin)
                 {
-                    troco -= Math.Round(notas * moeda, 2);
-                    return ($"Devolver ({moeda} x {notas}): {moeda * notas}");
+                    actualCoin++;
+                    changeValue -= coin;
+                }
+                if (actualCoin > 0)
+                {
+                    Console.WriteLine($"{actualCoin} Moeda(s) de R$ {coin} ");
+                    actualCoin = 0;
                 }
             }
-            return string.Empty;
         }
     }
 }
