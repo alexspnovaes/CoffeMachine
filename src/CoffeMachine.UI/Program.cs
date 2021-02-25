@@ -1,4 +1,5 @@
 ﻿using CoffeMachine.UI.Models.Response;
+using CoffeMachine.UI.Utils;
 using Flurl.Http;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,6 @@ namespace CoffeMachine.UI
         {
             var listCoffes = await GetCoffes();
             decimal[] validCoins = { 0.10M, 0.25M, 0.50M, 1 };
-            decimal inputValue = 0M;
             decimal sumValue = 0M;
            
             ConsoleKeyInfo input;
@@ -28,10 +28,9 @@ namespace CoffeMachine.UI
 
                 if (input.Key != ConsoleKey.Escape)
                 {
-
                     Console.WriteLine("Insira uma moeda");
 
-                    inputValue = CheckValueIsDecimal();
+                    decimal inputValue = CheckValueIsDecimal();
 
                     inputValue = CheckValidCoins(validCoins, inputValue);
 
@@ -39,13 +38,13 @@ namespace CoffeMachine.UI
 
                     Console.WriteLine($"Saldo: {sumValue}");
 
-                    if (OrderAvailablesCoffes(listCoffes, sumValue))
+                    if (OrderAvailablesCoffes(listCoffes, sumValue, validCoins))
                         break;
                 }
             } while (input.Key != ConsoleKey.Escape);
         }
 
-        private static bool OrderAvailablesCoffes(List<CoffeResponse> listCoffes, decimal sumValue)
+        private static bool OrderAvailablesCoffes(List<CoffeResponse> listCoffes, decimal sumValue, decimal[] validCoins)
         {
             int selectedCoffe = 0;
             var coffesAvailable = listCoffes.Where(w => w.Value <= sumValue).ToList();
@@ -56,9 +55,11 @@ namespace CoffeMachine.UI
                 Console.WriteLine("Caso deseje um desses valores, insira o número ou pressione qualquer tecla para continuar");
                 if (int.TryParse(Console.ReadLine(), out selectedCoffe) && coffesAvailable.Any(w => w.Id == selectedCoffe))
                 {
+                    var changeValue = sumValue - coffesAvailable.FirstOrDefault(w => w.Id == selectedCoffe).Value;
+
                     //essa parte poderia chamar a API e fazer o order do café
                     Console.WriteLine($"Entregando  {coffesAvailable.FirstOrDefault(w => w.Id == selectedCoffe).Name}");
-                    Console.WriteLine($"Troco: R$ {(sumValue - coffesAvailable.FirstOrDefault(w => w.Id == selectedCoffe).Value)}");
+                    Console.WriteLine($"Troco: R$ {(ChangeCalculate.Calculate(coffesAvailable.FirstOrDefault(w => w.Id == selectedCoffe).Value, changeValue,validCoins))}");
                     Console.ReadKey();
                     return true;
                 }
